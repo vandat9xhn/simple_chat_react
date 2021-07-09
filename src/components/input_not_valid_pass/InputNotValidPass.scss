@@ -1,0 +1,16 @@
+.InputNotValidPass{
+    position: relative;
+}
+
+//
+.InputNotValidPass_eye{
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
+//
+.InputNotValidPass_eye-contain{
+    padding: 0;
+    cursor: pointer;
+}

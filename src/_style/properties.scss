@@ -1,0 +1,377 @@
+
+/* ------------------------------ ACTIVE ----------------------------- */
+
+.act-scale-sm:active{
+    transform: scale(0.95);
+}
+
+/* ------------------------------ BG BS HR ----------------------------- */
+
+.bg-primary{
+    background-color: var(--md-bg-primary);
+}
+
+.bg-skeleton{
+    background-color: var(--bg-skeleton);
+}
+
+.bg-vid-pic{
+    background-image: linear-gradient(to right, #121111, #545454, #545454, #131212);
+}
+
+.bg-loader{
+    background-color: var(--bg-loader);
+}
+
+.bg-film{
+    background-color: var(--bg-film);
+}
+
+.bg-fb{
+    background-color: var(--md-bg-fb);
+}
+
+.bg-active-fb{
+    background-color: var(--md-bg-active-fb);
+}
+
+.bg-ccc{
+    background-color: var(--md-bg-ccc);
+}
+
+.bg-blue{
+    background-color: var(--blue);
+}
+
+.bg-green{
+    background-color: var(--green);
+}
+
+.bg-react{
+    background-color: var(--color-react);
+}
+
+.bg-linear-45-success-tear{
+    background-image: linear-gradient(45deg, var(--success), var(--blue-tear));
+}
+
+/* ---------------- Box Shadow ------------------ */
+.App_box_shadow{
+    box-shadow: 0 0.25px 5px 1px var(--md-box-shadow);
+}
+
+.box-shadow-1{
+    box-shadow: 0 0.3px 3.2px var(--md-box-shadow);
+}
+
+.box-shadow-action{
+    box-shadow: 0 0 2.5px 1px var(--md-box-shadow);
+}
+
+/* hr */
+.App_hr-bg{
+    background-color: var(--hr-bg);
+    border-top: 1px solid var(--md-bg-ccc);
+}
+
+/* none */
+.App_hr-none{
+    border: none;
+}
+
+
+/* ------------------------ BORDER --------------------------- */
+
+/* border-radius */
+.brs-5px{
+    border-radius: 5px;
+}
+
+.brs-8px{
+    border-radius: 8px;
+}
+
+.brs-50{
+    border-radius: 50%;
+}
+
+.brs-5px-md{
+    border-radius: 5px;
+}
+
+.brs-8px-md{
+    border-radius: 8px;
+}
+
+/* border */
+.border-active{
+    border: 1px solid var(--border-active);
+}
+
+.border-blue{
+    border: 1px solid var(--blue);
+}
+
+.border-blur{
+    border: 1px solid var(--bg-blur);
+}
+
+.border-hidden{
+    border: 1px solid transparent;
+}
+
+/* border bottom */
+.bottom-blue{
+    border-bottom: 2px solid var(--blue);
+}
+
+
+
+/* ---------------------------- CURSOR -------------------------*/
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.cursor-wait{
+    cursor: wait;
+}
+
+
+/* ---------------------------- HOVER -------------------------*/
+.hv-cl-blue:hover{
+    color: var(--blue);
+}
+
+.hv-opacity{
+    opacity: 0.5;
+    &:hover{
+        opacity: 1;
+    }
+}
+
+.hv-bg-blur{
+    &:hover{
+        background-color: var(--md-bg-blur);
+    }
+}
+
+/* ----------------------------NavLink active -------------------------*/
+.active-color{
+    color: var(--blue);
+}
+
+.nav-active .nav-text{
+    color: var(--blue);
+}
+
+.nav-active .nav-bottom{
+    border-bottom: 2px solid var(--blue-blur);
+}
+
+.nav-active .nav-bottom:hover{
+    border-bottom: 2px solid var(--blue);
+}
+
+
+/* -------------------------- Margin --------------------------------- */
+.margin-auto{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.margin-0{
+    margin: 0;
+}
+
+.margin-left-5px{
+    margin-left: 5px;
+}
+
+/* -------------- OPACITY ---------------- */
+.opacity-0{
+    opacity: 0;
+}
+.opacity-05{
+    opacity: 0.5;
+}
+.opacity-1{
+    opacity: 1;
+}
+
+
+/* -------------- POINTER EVENTS -----------*/
+.pointer-events-none{
+    pointer-events: none;
+}
+
+/* ---------------- PADDING ---------------*/
+.padding-8px{
+    padding: 8px;
+}
+
+.padding-4px{
+    padding: 4px;
+}
+
+
+/* ------------------------ TEXT -------------------------- */
+
+/* normal */
+.normal-text{
+    color: var(--md-color);
+    text-decoration: none;
+}
+
+.text-primary{
+    color: var(--md-color);
+}
+
+.text-secondary{
+    color: var(--md-color-secondary);
+}
+
+.text-white{
+    color: var(--white);
+}
+
+.text-light{
+    color: var(--color-light);
+}
+
+.text-red{
+    color: var(--danger);
+}
+
+.text-blue{
+    color: var(--blue);
+}
+.text-green{
+    color: var(--green);
+}
+
+.color-react{
+    color: var(--color-react);
+}
+
+.color-django{
+    color: var(--color-django);
+}
+
+/* don vi vnd */
+.dv-vnd {
+    font-size: 0.6rem;
+}
+
+.font-italic{
+    font-style: italic;
+}
+
+.font-weight-600{
+    font-weight: 600;
+}
+
+.font-12px{
+    font-size: 12px;
+}
+
+.font-16px{
+    font-size: 16px;
+}
+
+// align
+.text-align-left{
+    text-align: left;
+}
+.text-align-center{
+    text-align: center;
+}
+
+/* ----------- V -------------*/
+
+.visibility-hidden{
+    visibility: hidden;
+}
+
+.visibility-visible{
+    visibility: visible;
+}
+
+
+/* ------------- ICON --------------*/
+.size_icon{
+    width: 1.5rem;
+}
+
+.close-icon-small{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: var(--danger);
+}
+
+
+/* ----------------------- Webkit Scroll ------------------------*/
+.scroll-thin::-webkit-scrollbar{
+    width: 0.5rem;
+}
+.scroll-thin::-webkit-scrollbar-track{
+    border-radius: 5px;
+    // background-color: rgb(247, 247, 247);
+    // box-shadow: 0 0 10px 0px black;
+}
+.scroll-thin::-webkit-scrollbar-thumb{
+    background-color: transparent;
+    border-radius: 5px;
+}
+
+.scroll-thin:hover::-webkit-scrollbar-thumb{
+    background-color: var(--md-bg-ccc);
+}
+
+// 
+.scroll-x-none::-webkit-scrollbar{
+    height: 0;
+}
+
+// 
+.scroll-y-none::-webkit-scrollbar{
+    width: 0;
+}
+
+/* ----------------------- Webkit input ------------------------*/
+.inner-spin-none::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+
+/* --------------------- WIDTH ------------------------ */
+.width-fit-content{
+    width: fit-content;
+}
+
+
+//
+@media (max-width: 600px){
+    .size_icon{
+        width: 1rem;
+    }
+}
+
+@media (max-width: 500px){
+    .scroll-thin::-webkit-scrollbar{
+        width: 0;
+    }
+}
+
+@media (max-width: 400px){
+    .brs-5px-md{
+        border-radius: 0;
+    }
+    
+    .brs-8px-md{
+        border-radius: 0;
+    }
+}

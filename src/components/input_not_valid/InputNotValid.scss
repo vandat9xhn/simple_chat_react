@@ -1,0 +1,15 @@
+// .
+.InputNotValid_input {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: transparent;
+    border: 1px solid var(--md-color-secondary);
+    &:focus {
+        border: 1px solid var(--blue);
+        outline: none;
+    }
+}
+
+.InputNotValid_placeholder{
+    background-color: var(--color-react);
+}

@@ -1,0 +1,139 @@
+/***** ROOT ****/
+:root {
+    /* color */
+    --black-brown: #300d00;
+    --btn-buy: #ff8d00;
+    --color-light: #e4e6eb;
+    --ccc: #ccc;
+    --ccc-blur: #cccccc80;
+    --blue: #007bff;
+    --blue-blur: #007bff80;
+    --blue-tear: #00a3ff;
+    --danger: #dc3545;
+    --gray: gray;
+    --face-yellow: #ffd12e;
+    --face-angry: #c20707;
+    --heart: #fa4664;
+    --heart-blur: #ffc2cc;
+    --heart-through: #fa466480;
+    --gold: gold;
+    --gold-through: #ffd90080;
+    --nav-active-color: #1877f2;
+    --snow-flake: #76dfff;
+    --snow-flake-through: #76dfff80;
+    --success: #28a745;
+    --warning: #ffc107;
+    --white: white;
+    --white-blur: #ffffff93;
+
+    --hr-bg: #b8b5b5;
+
+    /* bg */
+    --bg-light: #e6ecf0;
+    --bg-header-hover: #c9caca86;
+    --bg-blur: #eee;
+    --bg-through: #dededed6;
+    --bg-skeleton: #c5c5c5;
+    --bg-fetching: #1a0f0f80;
+    --bg-loader: #000000f0;
+    --bg-film: rgba(0, 0, 0, 0.6);
+    --bg-vid-pic: #000000cf;
+    --bg-cmt: #a3a3a3;
+    --bg-loader-hover: #3a3434d9;
+    --bg-active-fb: #e7f3ff;
+
+    /* BREAK POiNT */
+    --xs: 0px;
+    --sm: 600px;
+    --md: 960px;
+    --lg: 1280px;
+    --xg: 1500px;
+    --xl: 1920px;
+
+    /* z index */
+    --z-index-lv0: 0;
+    --z-index-lv1: 10;
+    --z-index-lv2: 20;
+    --z-index-lv3: 30;
+    --z-index-lv4: 40;
+    --z-index-lv5: 50;
+
+    /* HEIGHT */
+    --height-header: 48px;
+
+    /* border */
+    --border-fashion: #ff6600;
+    --border-active: #e6990a;
+
+    /* HOVER */
+    --fashion-hover: #ff7c24;
+
+    /* Mode Light*/
+    --md-color: #050505;
+    --md-color-secondary: #65676b;
+    --md-color-smoke: #d3d1d1;
+    --md-gold: var(--gold-through);
+    --md-heart: var(--heart-through);
+    --md-snow-flake: var(--snow-flake);
+    --md-black-brown: var(--black-brown);
+    //
+    --color-react: #61dafb;
+    --color-django: #44b78b;
+    --green: #28a745;
+    // bg
+    --md-bg-primary: white;
+    --md-bg-secondary: aqua;
+    --md-bg-ccc: #e6e6e6;
+    --md-bg-blur: #e4e6e9;
+    --bg-app-form: #61ff8a;
+    --md-bg-through: var(--bg-through);
+    --md-bg-fb: #f0f2f5;
+    //
+    --md-bg-active-fb: var(--bg-active-fb);
+    // hv
+    --md-bg-hover: #00000024;
+    // Box shadow
+    --md-box-shadow: #2c2b2b69;
+    // border
+    --md-border-blur: #00000041;
+
+    /*     DARK     */
+    &[data-theme='dark'] {
+        --md-color: var(--color-light);
+        --md-color-secondary: #b0b3b8;
+        --md-color-smoke: #3a3939;
+        --md-gold: var(--gold);
+        --md-heart: var(--heart);
+        --md-snow-flake: var(--snow-flake);
+        --md-black-brown: var(--md-color);
+        //
+        --color-react: #216577;
+        --color-django: #1b7e58;
+        --green: #0b481a;
+        // bg
+        --md-bg-primary: #3f3f3f;
+        --md-bg-secondary: #1e1e1e;
+        --md-bg-ccc: #4e4f50;
+        --md-bg-blur: #ffffff1a;
+        --md-bg-through: #545252d6;
+        --bg-app-form: #61ff8a80;
+        --md-bg-fb: #18191a;
+        //
+        --md-bg-active-fb: #263951;
+        // hv
+        --md-bg-hover: rgb(42, 42, 42);
+        // Box shadow
+        --md-box-shadow: #ffffff99;
+        // Border
+        --md-border-blur: #77767641;
+    }
+    
+    /* BOX SHADOW */
+    --box-shadow-action: 0 0 2.5px 1px var(--md-box-shadow);
+
+    // 
+    @media (max-width: 400px) {
+        --height-header: 42px;
+    }
+}
+

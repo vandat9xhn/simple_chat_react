@@ -1,0 +1,141 @@
+/* ------------------------- COMMON ---------------------- */
+%stepper-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+
+    height: 2px;
+    transform: translateY(-50%);
+    z-index: 0;
+}
+
+/* ------------------------- B ---------------------- */
+
+.btn{
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-hv:hover {
+    opacity: 0.9;
+}
+
+.btn-active:active{
+    transform: scale(0.95);
+}
+
+/* ------------------------- H ---------------------- */
+
+.h-100per{
+    height: 100%;
+}
+
+.height-100vh {
+    height: 100vh;
+}
+
+/* ------------------------- I ---------------------- */
+.input{
+    // border: none;
+    &:focus {
+        outline: none;
+    }
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+}
+
+.input-active {
+    .input-placeholder {
+        top: 0;
+
+        line-height: 12px;
+        padding: 0 0.25rem;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .input-placeholder-active{
+        color: var(--blue);
+    }
+}
+
+.input-placeholder {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    transition: top 200ms, font-size 200ms;
+
+    font-size: 16px;
+    color: var(--md-color-secondary);
+
+    pointer-events: none;
+}
+
+/* ------------------------- L ---------------------- */
+
+.list-none {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* ------------------------- O ---------------------- */
+
+.one-line {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ------------------------- S ---------------------- */
+
+.stepper-line {
+    @extend %stepper-line;
+    width: 100%;
+    background-color: var(--md-bg-ccc);
+}
+
+.stepper-line-active {
+    @extend %stepper-line;
+    background-color: var(--success);
+}
+
+.screen-blur {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+
+    background-color: var(--bg-through);
+    z-index: var(--z-index-lv4);
+}
+
+.ScreenFixed-icon-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 2rem;
+    height: 2rem;
+    padding: 0.2rem;
+    background-color: var(--bg-loader);
+
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+/* ------------------------- W ---------------------- */
+
+.wh-100 {
+    width: 100%;
+    height: 100%;
+}
+
+.w-100per {
+    width: 100%;
+}

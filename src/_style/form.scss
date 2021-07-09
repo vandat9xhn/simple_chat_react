@@ -1,0 +1,79 @@
+/************ Form Submit ************/
+.App_Form{
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+
+/* -------------------------- FORM FIXED -------------------------- */
+.form-fixed{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 40vw;
+    z-index: var(--z-index-lv4);
+}
+
+
+.App_submit > button{
+    width: 100%;
+}
+
+
+//
+
+.label-field{
+    font-weight: bold;
+}
+.error-field{
+    color: var(--danger);
+    font-size: 0.7rem;
+}
+
+.help-text{
+    font-size: 0.7rem;
+    font-style: italic;
+}
+
+.App_title{
+    padding: 0.5rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.25rem;
+}
+
+
+
+/* ----------------------- MEDIA ------------------------------ */
+
+$form-media: 
+    ("break-point": 1560px, "form-width": 45vw),
+    ("break-point": 1260px, "form-width": 50vw),
+    ("break-point": 960px, "form-width": 60vw),
+    ("break-point": 720px, "form-width": 90vw),
+    ("break-point": 400px, "form-width": 100vw)
+;
+
+@mixin AppFormMedia($w) {
+    .App_Form, .form-fixed{
+        width: $w;
+    }
+}
+
+@each $item in $form-media {
+    @media (max-width: map-get($item, "break-point")){
+        @include AppFormMedia(map-get($item, "form-width"))
+    }
+}
+
+
+@media (max-width: 600px){
+    .App_title{
+        font-weight: bold;
+        letter-spacing: 0.1rem;
+    }
+}

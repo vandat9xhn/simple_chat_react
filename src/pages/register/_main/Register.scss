@@ -1,0 +1,12 @@
+.Register_form{
+    width: 25rem;
+    max-width: 100%;
+}
+// ..
+.Register_input{
+    margin: 1rem 0;
+
+    .InputNotValid_placeholder {
+        background-color: var(--md-bg-primary);
+    }
+}

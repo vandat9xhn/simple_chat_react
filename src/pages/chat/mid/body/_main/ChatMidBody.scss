@@ -1,0 +1,8 @@
+.ChatMidBody{
+    border: 1px solid var(--md-color-secondary);
+}
+
+.ChatMidBody_row{
+    height: calc(100vh - 8rem);
+    overflow-y: auto;
+}
