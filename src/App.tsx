@@ -14,6 +14,9 @@ import './_style/post.scss';
 import './_style/vid_pics.scss';
 import './_style/device.scss';
 //
+import Header from './components/_header/_main/Header';
+import ContextProvider from './_context/ContextProvider';
+//
 
 //
 export interface IAppProps {}
@@ -23,30 +26,32 @@ export default class App extends React.Component<IAppProps> {
     public render() {
         //
         return (
-            <React.Suspense fallback={<div></div>}>
-                <BrowserRouter>
-                <div className="App">
-                    <header className="AppHeader">
+            <ContextProvider>
+                <React.Suspense fallback={<div></div>}>
+                    <BrowserRouter>
+                        <div className="App">
+                            <header className="AppHeader">
+                                <Header />
+                            </header>
 
-                    </header>
+                            <main className="AppContent">
+                                <Switch>
+                                    {Routes.map((item, ix) => (
+                                        <Route
+                                            key={`${ix}`}
+                                            path={item.path}
+                                            component={item.component}
+                                            exact={item.exact}
+                                        />
+                                    ))}
 
-                    <main className="AppContent">
-                        <Switch>
-                            {Routes.map((item, ix) => (
-                                <Route
-                                    key={`${ix}`}
-                                    path={item.path}
-                                    component={item.component}
-                                    exact={item.exact}
-                                />
-                            ))}
-
-                            <Redirect to="/login" />
-                        </Switch>
-                    </main>
-                </div>
-                </BrowserRouter>
-            </React.Suspense>
+                                    <Redirect to="/login" />
+                                </Switch>
+                            </main>
+                        </div>
+                    </BrowserRouter>
+                </React.Suspense>
+            </ContextProvider>
         );
     }
 }

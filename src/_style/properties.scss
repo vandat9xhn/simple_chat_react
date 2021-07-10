@@ -179,12 +179,20 @@
     margin-right: auto;
 }
 
+.margin-left-auto{
+    margin-left: auto;
+}
+
 .margin-0{
     margin: 0;
 }
 
 .margin-left-5px{
     margin-left: 5px;
+}
+
+.margin-right-5px{
+    margin-right: 5px;
 }
 
 /* -------------- OPACITY ---------------- */
@@ -196,6 +204,12 @@
 }
 .opacity-1{
     opacity: 1;
+}
+
+/* -------------- OVERFLOW ---------------- */
+
+.overflow-hidden{
+    overflow: hidden;
 }
 
 
@@ -282,8 +296,13 @@
 .text-align-left{
     text-align: left;
 }
+
 .text-align-center{
     text-align: center;
+}
+
+.text-align-end{
+    text-align: end;
 }
 
 /* ----------- V -------------*/

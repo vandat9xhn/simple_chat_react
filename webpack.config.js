@@ -33,7 +33,7 @@ const devServer = {
 
 //
 const is_prod = process.env.ENVIRONMENT === 'production';
-//  const is_prod = true;
+//   const is_prod = true;
 
 // Config
 const config = {

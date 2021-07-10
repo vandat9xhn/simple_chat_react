@@ -4,8 +4,10 @@ import { Link, useHistory } from 'react-router-dom';
 //
 import { loginRequest } from '../../../_api/account/AccountAPI';
 //
-import InPutNotValid from '../../../components/input_not_valid/InputNotValid';
-import InputNotValidPass from '../../../components/input_not_valid_pass/InputNotValidPass';
+import { makeFormData } from '../../../_utils/makeFormData';
+//
+import InPutNotValid from '../../../components/input/input_not_valid/InputNotValid';
+import InputNotValidPass from '../../../components/input/input_not_valid_pass/InputNotValidPass';
 //
 import { login_initial_arr } from '../_initial/LoginInitial';
 //
@@ -31,10 +33,12 @@ export default function Login(props: ILoginProps) {
     //
     async function login() {
         try {
-            const res = await loginRequest({
-                username: username,
-                password: password,
-            });
+            const res = await loginRequest(
+                makeFormData({
+                    username: username,
+                    password: password,
+                })
+            );
 
             if (res.data != 'ok') {
                 setLoginState({

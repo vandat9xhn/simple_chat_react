@@ -1,10 +1,14 @@
 import * as React from 'react';
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 //
 import { registerRequest } from '../../../_api/account/AccountAPI';
 //
-import InputNotValidPass from '../../../components/input_not_valid_pass/InputNotValidPass';
-import InPutNotValid from '../../../components/input_not_valid/InputNotValid';
+import { makeFormData } from '../../../_utils/makeFormData';
+//
+import InputNotValidPass from '../../../components/input/input_not_valid_pass/InputNotValidPass';
+import InPutNotValid from '../../../components/input/input_not_valid/InputNotValid';
+import InputPicture from '../../../components/input/picture/InputPicture';
 //
 import { register_initial_arr } from '../_initial/RegisterInitial';
 //
@@ -16,17 +20,25 @@ export interface IRegisterProps {}
 //
 export default function Register(props: IRegisterProps) {
     //
+    const use_history = useHistory();
+
+    //
     const [register_state, setRegisterState] = useState({
         username: '',
         password: '',
         email: '',
         first_name: '',
         last_name: '',
+        picture: null,
+        file: null,
     });
 
     //
     async function handelRegister() {
-        await registerRequest(register_state);
+        const {picture, ...rest_state} = register_state
+        await registerRequest(makeFormData(rest_state));
+
+        use_history.replace('/chat');
     }
 
     //
@@ -35,6 +47,26 @@ export default function Register(props: IRegisterProps) {
             ...register_state,
             [e.target.name]: e.target.value,
         });
+    }
+
+    // 
+    function handleChangePicture(e: React.ChangeEvent<HTMLInputElement>) {
+        const new_file = e.target.files[0]
+        if (new_file) {
+            const reader = new FileReader()
+
+            reader.onload = () => {
+                setRegisterState({
+                    ...register_state,
+                    file: new_file,
+                    picture: reader.result,
+                })
+            }
+
+            reader.readAsDataURL(new_file)
+        }
+
+        
     }
 
     //
@@ -77,6 +109,18 @@ export default function Register(props: IRegisterProps) {
                             )}
                         </div>
                     ))}
+                </div>
+
+                <div>
+                    <h2 className="margin-0 font-16px">Choose picture</h2>
+
+                    <div className="Register_file padding-8px">
+                        <InputPicture
+                            title="Choose picture"
+                            picture={register_state.picture}
+                            handleChangePicture={handleChangePicture}
+                        />
+                    </div>
                 </div>
 
                 <div>

@@ -1,4 +1,6 @@
 import * as React from 'react';
+// 
+import './ChatBdMsLeft.scss';
 
 //
 export interface IChatBdMsLeftProps {
@@ -9,10 +11,10 @@ export interface IChatBdMsLeftProps {
 export function ChatBdMsLeft({ picture }: IChatBdMsLeftProps) {
     //
     return (
-        <div>
+        <div className="ChatBdMsLeft">
             <div>
                 <img
-                    className="brs-50per"
+                    className="brs-50"
                     src={picture}
                     alt=""
                     width="50"

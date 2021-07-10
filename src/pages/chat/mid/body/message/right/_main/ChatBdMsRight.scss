@@ -1,0 +1,15 @@
+.ChatBdMsRight_name{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100vw - 5rem);
+}
+
+.ChatBdMsRight_message{
+    padding: 8px;
+    border-radius: 10px;
+}
+// .
+.ChatBdMsRight_message-text{
+    white-space: pre-wrap;
+}

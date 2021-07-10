@@ -1,3 +1,7 @@
+.Register{
+    padding: 52px 0;
+}
+
 .Register_form{
     width: 25rem;
     max-width: 100%;
@@ -8,5 +12,18 @@
 
     .InputNotValid_placeholder {
         background-color: var(--md-bg-primary);
+    }
+}
+
+.Register_file{
+    width: 15rem;
+    height: 15rem;
+    max-width: 100%;
+}
+
+// 
+@media (max-width: 26rem) {
+    .Register{
+        padding: 0 0;
     }
 }

@@ -65,23 +65,25 @@ img {
 .App {
     background-color: var(--md-bg-fb);
     color: var(--md-color);
-    overflow-x: hidden;
 }
 
 /* ------------ HEADER -------------- */
 .AppHeader {
-    position: fixed;
+    // position: fixed;
+    position: sticky;
     top: 0;
     width: 100%;
-    height: var(--height-header);
+    // height: var(--height-header);
     z-index: var(--z-index-lv3);
+    
+    // background-color: var(--md-bg-primary);
 }
 
 /* ------------ CONTENT -------------- */
 .AppContent {
-    margin-top: calc(var(--height-header));
-    margin-bottom: 1rem;
-    min-height: calc(100vh + 5rem - var(--height-header));
+    // margin-top: calc(var(--height-header));
+    // margin-bottom: 1rem;
+    min-height: calc(100vh - var(--height-header));
 }
 
 .AppNatureDrop {

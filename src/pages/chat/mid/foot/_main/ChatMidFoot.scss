@@ -1,4 +1,31 @@
+
+// .
 .ChatMidFoot_textarea{
+    max-height: 12rem;
+    padding: 8px;
+
+    border-radius: 10px;
+    border: none;
+
     resize: none;
     overflow-y: auto;
+
+    &:focus{
+        outline: none;
+    }
+}
+
+// 
+@media (max-width: 400px) {
+    .ChatMidFoot_row{
+        display: block;
+    }
+    // .
+    .ChatMidFoot_right{
+        margin: 10px 0 0 0;
+        text-align: end;
+        button{
+            padding: 5px 16px;
+        }
+    }
 }

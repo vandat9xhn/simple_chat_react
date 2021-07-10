@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 //
 import './ChatMidFoot.scss';
 
 //
-interface IChatMidFootProps {
+export interface IChatMidFootProps {
     handleSend: (value: string) => void;
 }
 
@@ -14,33 +14,50 @@ export default function ChatMidFoot({ handleSend }: IChatMidFootProps) {
     const [value, setValue] = useState('');
 
     //
+    const ref_textarea_elm = useRef(null);
+
+    //
     function handleChange(e: React.ChangeEvent<HTMLTextAreaElement>) {
         setValue(e.target.value);
+
+        e.currentTarget.style.height = 'auto';
+        e.currentTarget.style.height = e.currentTarget.scrollHeight + 'px';
     }
 
     //
     function onSend() {
-        handleSend(value);
+        if (value.trim()) {
+            handleSend(value);
+            setValue('');
+            ref_textarea_elm.current.style.height = 'auto';
+        }
     }
 
     //
     return (
-        <div className="ChatMidFoot">
-            <div className="ChatMidFoot_row display-flex">
-                <div className="flex-grow-1">
+        <div className="ChatMidFoot padding-8px">
+            <div className="ChatMidFoot_row display-flex align-items-center">
+                <div></div>
+
+                <div className="ChatMidBody_mid flex-grow-1">
                     <textarea
-                        className="ChatMidFoot_textarea w-100per scroll-thin brs-5px"
-                        rows={4}
+                        ref={ref_textarea_elm}
+                        className="ChatMidFoot_textarea w-100per scroll-thin bg-fb"
+                        rows={1}
                         value={value}
+                        placeholder="Write something..."
                         onChange={handleChange}
                     />
                 </div>
 
-                <div>
+                <div className="ChatMidFoot_right margin-left-5px">
                     <div>
                         <button
-                            className="btn btn-hv btn-active"
+                            className={`btn btn-hv btn-active brs-5px label-field ${
+                                value.trim() ? '' : 'opacity-05'
+                            }`}
                             type="button"
+                            disabled={!value.trim()}
                             onClick={onSend}
                         >
                             Send
