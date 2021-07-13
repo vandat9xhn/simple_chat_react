@@ -1,7 +1,11 @@
+.ChatMidFoot{
+    // border-top: 1px solid var(--md-color-secondary);
+    box-shadow: 0px 1px 2px 0.25px var(--md-color-secondary);
+}
 
 // .
 .ChatMidFoot_textarea{
-    max-height: 12rem;
+    max-height: 10rem;
     padding: 8px;
 
     border-radius: 10px;

@@ -17,7 +17,7 @@ function Header(props: IHeaderProps) {
                 location.pathname.search(/register/) > 0 ? 'display-none' : ''
             }`}
         >
-            <div className="display-flex-center">
+            <div className="display-flex-center h-100per">
                 <div></div>
 
                 <div>

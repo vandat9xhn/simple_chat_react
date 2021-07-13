@@ -19,7 +19,11 @@ export default function Chat(props: IChatProps) {
 
     //
     useEffect(() => {
-        ws.current = new WebSocket('ws://' + location.host + '/ws/chat/world/');
+        ws.current = new WebSocket(
+            `ws${location.protocol == 'https:' ? 's' : ''}://${
+                location.host
+            }/ws/chat/world/`
+        );
 
         ws.current.onopen = () => {
             console.log('open');

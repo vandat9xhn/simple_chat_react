@@ -10,8 +10,8 @@ const VENDOR_LIBS = [
     'react',
     'react-dom',
     'react-router-dom',
-    // 'axios',
-    // 'redux',
+    'axios',
+    'redux',
     // 'react-redux',
     // 'redux-thunk',
     // 'redux-saga',
@@ -55,7 +55,7 @@ const config = {
         path: path.resolve(__dirname, 'dist'),
     },
     //devtool
-    devtool: 'source-map',
+//    devtool: 'source-map',
     // module
     module: {
         rules: [
@@ -79,7 +79,9 @@ const config = {
             {
                 use: [
                     is_prod ? MiniCssExtractPlugin.loader : 'style-loader',
-                    { loader: 'css-loader', options: { sourceMap: true } },
+                    { loader: 'css-loader', options: { 
+//                        sourceMap: true
+                    } },
                     { loader: 'sass-loader' },
                 ],
                 test: /\.(c|sa|sc)ss$/,

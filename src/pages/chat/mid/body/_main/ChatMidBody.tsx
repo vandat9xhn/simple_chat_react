@@ -22,12 +22,12 @@ export default function ChatMidBody({
 }: IChatMidBodyProps) {
     //
     return (
-        <div className="ChatMidBody">
+        <div className="ChatMidBody h-100per">
             <div
-                className="ChatMidBody_row display-flex col-reverse padding-8px"
+                className="ChatMidBody_row display-flex col-reverse h-100per padding-8px"
                 onScroll={handleScrollToGetMessage}
             >
-                <div>
+                <div className="display-flex col-reverse">
                     {message_arr.map((item, ix) => (
                         <div key={`${ix}`} className="ChatMidBody_item">
                             <ChatBdMessage {...item} />

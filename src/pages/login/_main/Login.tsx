@@ -2,12 +2,15 @@ import * as React from 'react';
 import { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 //
+import { context_api } from '../../../_context/ContextAPI';
+//
 import { loginRequest } from '../../../_api/account/AccountAPI';
 //
 import { makeFormData } from '../../../_utils/makeFormData';
 //
-import InPutNotValid from '../../../components/input/input_not_valid/InputNotValid';
-import InputNotValidPass from '../../../components/input/input_not_valid_pass/InputNotValidPass';
+import InPutNotValid from '../../../components/input/not_valid/input_not_valid/InputNotValid';
+import InputNotValidPass from '../../../components/input/not_valid/input_not_valid_pass/InputNotValidPass';
+import FetchingThreeDot from '../../../components/fetching/three_dot/FetchingThreeDot';
 //
 import { login_initial_arr } from '../_initial/LoginInitial';
 //
@@ -22,10 +25,14 @@ export default function Login(props: ILoginProps) {
     const use_history = useHistory();
 
     //
+    const { setDataUser } = React.useContext(context_api);
+
+    //
     const [login_state, setLoginState] = useState({
         username: '',
         password: '',
         is_wrong: false,
+        is_fetching: false,
     });
 
     const { username, password, is_wrong } = login_state;
@@ -33,6 +40,11 @@ export default function Login(props: ILoginProps) {
     //
     async function login() {
         try {
+            setLoginState({
+                ...login_state,
+                is_fetching: true,
+            });
+
             const res = await loginRequest(
                 makeFormData({
                     username: username,
@@ -40,12 +52,14 @@ export default function Login(props: ILoginProps) {
                 })
             );
 
-            if (res.data != 'ok') {
+            if (res.data == 'wrong') {
                 setLoginState({
                     ...login_state,
                     is_wrong: true,
+                    is_fetching: false,
                 });
             } else {
+                setDataUser(res.data);
                 use_history.push('/chat');
             }
         } catch (er) {
@@ -132,6 +146,16 @@ export default function Login(props: ILoginProps) {
                             </div>
                         </Link>
                     </div>
+                </div>
+            </div>
+
+            <div
+                className={`pos-fixed-100 z-index-lv5 bg-s-through ${
+                    login_state.is_fetching ? '' : 'display-none'
+                }`}
+            >
+                <div className="pos-abs-center">
+                    <FetchingThreeDot is_fetching={login_state.is_fetching} />
                 </div>
             </div>
         </div>

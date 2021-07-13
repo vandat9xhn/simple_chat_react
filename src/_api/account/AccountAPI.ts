@@ -2,7 +2,7 @@ import axiosClientNoToken from '../_axios_client/AxiosClientNoToken';
 //
 import { _type_base_user } from '../../_type/Type';
 //
-import { is_fake_api } from '../_const/ConstAPI';
+import { IS_FAKE_API } from '../_const/ConstAPI';
 
 //
 type _data_base_user = {
@@ -37,7 +37,7 @@ export function logoutRequest() {
 
 //
 export function API_DefineUser() {
-    if (!is_fake_api) {
+    if (!IS_FAKE_API) {
         return axiosClientNoToken({
             url: 'api/account/define/',
             method: 'POST',

@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { useEffect } from 'react';
+import { ReactElement } from 'react';
 import { useRef, useState } from 'react';
 //
 import './ChatMidFoot.scss';
@@ -6,10 +8,14 @@ import './ChatMidFoot.scss';
 //
 export interface IChatMidFootProps {
     handleSend: (value: string) => void;
+    changePaddingBottomBody: () => void;
 }
 
 //
-export default function ChatMidFoot({ handleSend }: IChatMidFootProps) {
+export default function ChatMidFoot({
+    handleSend,
+    changePaddingBottomBody,
+}: IChatMidFootProps) {
     //
     const [value, setValue] = useState('');
 
@@ -17,19 +23,41 @@ export default function ChatMidFoot({ handleSend }: IChatMidFootProps) {
     const ref_textarea_elm = useRef(null);
 
     //
+    useEffect(() => {
+        window.addEventListener('orientationchange', handelOrientation)
+        
+        return () => {
+            window.removeEventListener('orientationchange', handelOrientation)
+        }
+    }, []);
+
+    // 
+    function handelOrientation() {       
+        setTimeout(() => {
+            ref_textarea_elm.current.style.height = 'auto';
+            ref_textarea_elm.current.style.height =
+                ref_textarea_elm.current.scrollHeight + 'px';
+            changePaddingBottomBody();
+        }, 100);
+    }
+
+    //
     function handleChange(e: React.ChangeEvent<HTMLTextAreaElement>) {
         setValue(e.target.value);
 
         e.currentTarget.style.height = 'auto';
         e.currentTarget.style.height = e.currentTarget.scrollHeight + 'px';
+        changePaddingBottomBody();
     }
 
     //
     function onSend() {
         if (value.trim()) {
             handleSend(value);
+
             setValue('');
             ref_textarea_elm.current.style.height = 'auto';
+            changePaddingBottomBody();
         }
     }
 

@@ -1,3 +1,16 @@
 .ChatMid{
     border: 1px solid var(--md-color-secondary);
+    height: calc(100vh - var(--height-header) - 1px);
+}
+
+.ChatMid_body{
+    height: 100%;
+}
+
+.ChatMid_foot{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
 }

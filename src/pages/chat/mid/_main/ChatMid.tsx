@@ -35,11 +35,18 @@ export default function ChatMid({ ws }: IChatMidProps) {
     const { message_arr, has_fetched, is_fetching } = message_state;
 
     //
+    const ref_chat_body_elm = useRef(null);
+    const ref_chat_foot_elm = useRef(null);
+
     const ref_fetching = useRef(false);
     const ref_max = useRef(false);
     const ref_count = useRef(0);
 
     //
+    useEffect(() => {
+        changePaddingBottomBody();
+    }, []);
+
     useEffect(() => {
         getData_API_Message({ message_arr: [], has_fetched: false });
     }, []);
@@ -66,7 +73,6 @@ export default function ChatMid({ ws }: IChatMidProps) {
         setMessageState((message_state) => ({
             ...message_state,
             message_arr: [
-                ...message_state.message_arr,
                 {
                     id: id,
                     first_name: first_name,
@@ -75,6 +81,7 @@ export default function ChatMid({ ws }: IChatMidProps) {
                     message: message,
                     created_time: new Date().toString(),
                 },
+                ...message_state.message_arr,
             ],
             count: message_state.count + 1,
         }));
@@ -87,6 +94,8 @@ export default function ChatMid({ ws }: IChatMidProps) {
     //
     async function getData_API_Message(start_obj_state = {}) {
         try {
+            const c_top =
+                document.getElementsByClassName('ChatMidBody_row')[0].scrollTop;
             ref_fetching.current = true;
 
             setMessageState({
@@ -101,25 +110,15 @@ export default function ChatMid({ ws }: IChatMidProps) {
             });
 
             setMessageState((message_state) => {
-                if (message_state.has_fetched) {
-                    setTimeout(() => {
-                        document
-                            .getElementsByClassName('ChatMidBody_item')[20]
-                            .scrollIntoView(false);
-                    }, 0);
-                }
+                ref_count.current = has_fetched
+                    ? message_arr.length + res.data.data.length
+                    : res.data.data.length;
 
-                ref_count.current = message_state.has_fetched
-                    ? message_state.count
-                    : res.data.count;
-
-                ref_max.current =
-                    res.data.count <= 20 ||
-                    ref_count.current <= message_state.message_arr.length;
+                ref_max.current = ref_count.current >= res.data.count;
 
                 return {
-                    message_arr: message_state.has_fetched
-                        ? [...res.data.data, ...message_state.message_arr]
+                    message_arr: has_fetched
+                        ? [...message_arr, ...res.data.data]
                         : res.data.data,
                     count: ref_count.current,
                     has_fetched: true,
@@ -127,7 +126,15 @@ export default function ChatMid({ ws }: IChatMidProps) {
                 };
             });
 
-            ref_fetching.current = false;
+            if (has_fetched) {
+                document.getElementsByClassName(
+                    'ChatMidBody_row'
+                )[0].scrollTop = c_top;
+            }
+
+            setTimeout(() => {
+                ref_fetching.current = false;
+            }, 100);
         } catch (er) {
             console.log(er);
         }
@@ -156,9 +163,15 @@ export default function ChatMid({ ws }: IChatMidProps) {
     }
 
     //
+    function changePaddingBottomBody() {
+        ref_chat_body_elm.current.style.paddingBottom =
+            ref_chat_foot_elm.current.offsetHeight + 'px';
+    }
+
+    //
     return (
-        <div className="ChatMid bg-primary">
-            <div>
+        <div className="ChatMid bg-primary position-rel">
+            <div ref={ref_chat_body_elm} className="ChatMid_body">
                 <ChatMidBody
                     message_arr={message_arr}
                     is_fetching={is_fetching}
@@ -166,8 +179,11 @@ export default function ChatMid({ ws }: IChatMidProps) {
                 />
             </div>
 
-            <div>
-                <ChatMidFoot handleSend={handleSend} />
+            <div ref={ref_chat_foot_elm} className="ChatMid_foot bg-primary">
+                <ChatMidFoot
+                    handleSend={handleSend}
+                    changePaddingBottomBody={changePaddingBottomBody}
+                />
             </div>
         </div>
     );

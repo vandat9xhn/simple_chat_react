@@ -1,7 +1,7 @@
 import axiosClientNoToken from '../_axios_client/AxiosClientNoToken';
 //
 import naruto_x_hinata from '../../_images/naruto_x_hinata.jpg';
-import { is_fake_api } from '../_const/ConstAPI';
+import { IS_FAKE_API } from '../_const/ConstAPI';
 
 //
 interface _type_result_message_obj {
@@ -50,7 +50,7 @@ const fakeMessageAPI = (data: any[]) =>
 
 //
 export function API_ChatMessage_L(params = {}) {
-    if (!is_fake_api) {
+    if (!IS_FAKE_API) {
         return axiosClientNoToken({
             url: 'api/chat/message-l/',
             method: 'GET',

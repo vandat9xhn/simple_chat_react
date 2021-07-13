@@ -1,3 +1,20 @@
+// 
+%pos-100{
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+// 
+%pos-center{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* ------------------- */
+
 //
 .position-rel {
     position: relative;
@@ -9,17 +26,17 @@
 
 .pos-abs-center {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    @extend %pos-center;
 }
 
 .pos-abs-100 {
     position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+    @extend %pos-100;
+}
+
+.pos-fixed-100{
+    position: fixed;
+    @extend %pos-100;
 }
 
 /* ------------- */
@@ -50,4 +67,10 @@
 .x-center {
     left: 50%;
     transform: translateX(-50%);
+}
+
+/* -------- Z INDEX ------- */
+
+.z-index-lv5{
+    z-index: var(--z-index-lv5);
 }

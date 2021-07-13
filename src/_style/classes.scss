@@ -74,6 +74,17 @@
     pointer-events: none;
 }
 
+.input-valid{
+    padding: 8px 15px;
+    border: 1px solid var(--md-color-secondary);
+    border-radius: 20px;
+
+    &:focus {
+        outline: none;
+        border: 1px solid var(--blue);
+    }
+}
+
 /* ------------------------- L ---------------------- */
 
 .list-none {
