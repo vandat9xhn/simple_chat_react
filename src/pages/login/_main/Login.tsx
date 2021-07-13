@@ -35,7 +35,7 @@ export default function Login(props: ILoginProps) {
         is_fetching: false,
     });
 
-    const { username, password, is_wrong } = login_state;
+    const { username, password, is_wrong, is_fetching } = login_state;
 
     //
     async function login() {
@@ -126,6 +126,7 @@ export default function Login(props: ILoginProps) {
                         <button
                             className="Login_btn btn btn-hv btn-active w-100per brs-5px padding-8px"
                             type="submit"
+                            disabled={is_fetching}
                         >
                             <h2 className="margin-0 font-16px text-white">
                                 Login
@@ -151,11 +152,12 @@ export default function Login(props: ILoginProps) {
 
             <div
                 className={`pos-fixed-100 z-index-lv5 bg-s-through ${
-                    login_state.is_fetching ? '' : 'display-none'
+                    is_fetching ? '' : 'display-none'
                 }`}
+                title="Fetching"
             >
                 <div className="pos-abs-center">
-                    <FetchingThreeDot is_fetching={login_state.is_fetching} />
+                    <FetchingThreeDot is_fetching={is_fetching} />
                 </div>
             </div>
         </div>

@@ -10,21 +10,43 @@ type _data_base_user = {
 };
 
 //
-export function registerRequest(data = {}) {
-    return axiosClientNoToken({
-        url: 'api/account/register/',
-        method: 'POST',
-        data: data,
+const _initial_data_user = {
+    id: 1,
+    first_name: 'Nguyen',
+    last_name: 'Nguyen',
+    picture: '',
+};
+
+//
+const fakePromiseAPI = <Type>(data: Type) =>
+    new Promise<Type>((res) => {
+        res(data);
     });
+
+//
+export function registerRequest(data = {}) {
+    if (!IS_FAKE_API) {
+        return axiosClientNoToken({
+            url: 'api/account/register/',
+            method: 'POST',
+            data: data,
+        });
+    }
+
+    return fakePromiseAPI<_data_base_user>({ data: _initial_data_user });
 }
 
 //
 export function loginRequest(data = {}) {
-    return axiosClientNoToken({
-        url: 'api/account/login/',
-        method: 'POST',
-        data: data,
-    });
+    if (!IS_FAKE_API) {
+        return axiosClientNoToken({
+            url: 'api/account/login/',
+            method: 'POST',
+            data: data,
+        });
+    }
+
+    return fakePromiseAPI<_data_base_user>({ data: _initial_data_user });
 }
 
 //
@@ -44,14 +66,7 @@ export function API_DefineUser() {
         });
     }
 
-    return new Promise<_data_base_user>((res) => {
-        res({
-            data: {
-                id: 1,
-                first_name: 'Nguyen',
-                last_name: 'Nguyen',
-                picture: '',
-            },
-        });
+    return fakePromiseAPI<_data_base_user>({
+        data: _initial_data_user,
     });
 }
